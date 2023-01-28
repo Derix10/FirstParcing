@@ -1,6 +1,5 @@
-package com.example.a6monthproject.ui.playlist
+package com.example.a6monthproject.ui.details
 
-import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,20 +10,21 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PlayListViewModel : BaseViewModel() {
+class PlayListDetailsViewModel: BaseViewModel() {
 
-    private val apiService = RetrofitClient.create()
 
-    fun getPlaylist(): LiveData<PlayList>{
+
+    private val apiService by lazy {
+        RetrofitClient.create()
+    }
+
+    fun getPlayListDetails(playlistId : String): LiveData<PlayList> {
+
         val data = MutableLiveData<PlayList>()
-
-        apiService.getPlaylist().enqueue(object : Callback<PlayList>{
-            @SuppressLint("NotifyDataSetChanged")
+        apiService.getPlaylistDetails(playlistId = playlistId).enqueue(object : Callback<PlayList>{
             override fun onResponse(call: Call<PlayList>, response: Response<PlayList>) {
-                if (response.errorBody() != null){
-                    Log.v("ololo", "onResponse: ${response.body()}")
-                }else {
-                    data.value = response.body      ()
+                if (response.isSuccessful){
+                    data.value = response.body()
                 }
             }
 
@@ -34,6 +34,7 @@ class PlayListViewModel : BaseViewModel() {
 
         })
         return data
-
     }
+
+
 }

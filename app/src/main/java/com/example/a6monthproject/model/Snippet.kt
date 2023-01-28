@@ -5,7 +5,7 @@ data class Snippet(
     var channelTitle: String?, // Kuplinov ► Play
     var description: String?,
     var localized: Localized?,
-    var publishedAt: String?, // 2023-01-11T09:20:27Z
+    var publishedAt: String?, // 2023-01-11 09:20:27
     var thumbnails: Thumbnails?,
     var title: String? // Choo-Choo Charles Прохождение
 )
