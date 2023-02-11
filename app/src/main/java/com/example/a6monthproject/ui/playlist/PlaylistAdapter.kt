@@ -3,16 +3,15 @@ package com.example.a6monthproject.ui.playlist
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a6monthproject.R
 import com.example.a6monthproject.databinding.PlaylistItemBinding
 import com.example.a6monthproject.model.Item
 import com.example.a6monthproject.util.loadImage
+import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.Adapter
 
-class PlaylistAdapter(val myContext: Context, private val onClick: (Item) -> Unit) :
-    PagingDataAdapter<Item, PlaylistAdapter.PlaylistHolder>(PLDiffrentCallBack) {
+class PlaylistAdapter(val myContext: Context, private val onClick: (Item) -> Unit) : RecyclerView.Adapter<PlaylistAdapter.PlaylistHolder>() {
 
     private var list = arrayListOf<Item>()
 
