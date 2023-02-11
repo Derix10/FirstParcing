@@ -7,8 +7,6 @@ import com.example.a6monthproject.base.BaseActivity
 import com.example.a6monthproject.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>(){
-
-
     override fun inflateViewBinding(layoutInflater: LayoutInflater): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
     }

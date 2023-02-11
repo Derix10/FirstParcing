@@ -8,7 +8,8 @@ import com.example.a6monthproject.base.BaseFragment
 import com.example.a6monthproject.databinding.FragmentInternerConnectionBinding
 import com.example.a6monthproject.ui.playlist.PlayListViewModel
 
-class InternerConnectionFragment : BaseFragment<FragmentInternerConnectionBinding, PlayListViewModel>() {
+class InternerConnectionFragment :
+    BaseFragment<FragmentInternerConnectionBinding, PlayListViewModel>() {
     override val viewModel: PlayListViewModel by lazy {
         ViewModelProvider(this)[PlayListViewModel::class.java]
     }
@@ -21,18 +22,20 @@ class InternerConnectionFragment : BaseFragment<FragmentInternerConnectionBindin
     }
 
     override fun initViewModel() {
-    }
-
-    override fun initView() {
         val checkInternet = CheckInternet(requireContext())
         checkInternet.observe(this) { isConnected ->
             binding.btnTryAgain.setOnClickListener {
                 if (isConnected) {
                     findNavController().navigateUp()
                 }
+
             }
 
         }
+    }
+
+    override fun initView() {
+
 
     }
 }

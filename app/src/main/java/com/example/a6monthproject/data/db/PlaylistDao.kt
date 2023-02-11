@@ -9,8 +9,8 @@ import com.example.a6monthproject.model.PlayList
 interface PlaylistDao {
 
     @Insert
-    fun insert(playList: PlayList)
+    suspend fun insert(playList: PlayList)
 
     @Query("SELECT * FROM playlist")
-    fun getPlaylist(): PlayList
+    fun getPlaylistFromDao(): PlayList
 }

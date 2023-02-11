@@ -21,4 +21,10 @@
         android:name="com.example.a6monthproject.ui.details.PlayListDetailsFragment"
         android:label="fragment_play_list2"
         tools:layout="@layout/fragment_play_list2" />
+    <fragment
+        android:id="@+id/playerYoutubeFragment"
+        android:name="com.example.a6monthproject.ui.player.PlayerYoutubeFragment"
+        android:label="fragment_player_youtube"
+        tools:layout="@layout/fragment_player_youtube" />
+
 </navigation>
