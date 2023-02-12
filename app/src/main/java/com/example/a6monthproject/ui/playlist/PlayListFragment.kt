@@ -48,7 +48,6 @@ class PlayListFragment : BaseFragment<FragmentPlayListBinding, PlayListViewModel
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
-
                     newMaxResult += 5
                     viewModel.getPlaylist(newMaxResult)
                 }
